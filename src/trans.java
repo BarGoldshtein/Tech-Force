@@ -4,17 +4,25 @@ import com.ibm.watson.language_translator.v3.model.TranslateOptions;
 import com.ibm.watson.language_translator.v3.model.TranslationResult;
 import com.ibm.watson.language_translator.v3.util.Language;
 import org.json.*;
-import trans;
+//import trans;
+
 
 public class trans {
 	
-
-	public trans(confClass)
+	
+	/*public trans(config c)
 	{
-		private conf = confClass. getApi;
-		private endp = confClass.getEndPoint;
+		final  String conf = c.getApi();
+		final  String  endp = c.getEndPoint();
 	
 	}
+	*/
+
+	public trans(config conf) {
+		//Default cons
+	}
+
+
 
 	public static String translate(String text,String source,String target) {
 		try {
@@ -22,13 +30,13 @@ public class trans {
 				String s = lang.getLang(source);
 				String t = lang.getLang(target);
 				IamOptions options = new IamOptions.Builder()
-		    		.apiKey(this.conf)
+		    		.apiKey(config.getApi())
 		    		.build();
 
 
 				LanguageTranslator languageTranslator = new LanguageTranslator(java.time.LocalDate.now(), options);
 
-				languageTranslator.setEndPoint(this.endp);
+				languageTranslator.setEndPoint(config.getEndPoint());
 		
 		
 				languageTranslator.setIamCredentials(options);
