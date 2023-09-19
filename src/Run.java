@@ -1,7 +1,10 @@
-import Client;
-import Server;
-public class main {
+import Client.Client;
+import server.Server;
+import Utilitis.config;
 
+public class Run {
+
+	
 	public static void main(String[] args)
 	{
 
@@ -11,7 +14,7 @@ public class main {
 		client.run();
 		Server server = new Server();
 		server.run();
-
+		
 
 	}
 }
