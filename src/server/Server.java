@@ -1,5 +1,5 @@
 package server;
-
+import Utilitis.trans;
 
 
 import java.io.BufferedInputStream;
@@ -14,6 +14,7 @@ public class Server extends Thread{
    private int port = 5600;
 
    public Server() {
+	   
       try {
 	server = new ServerSocket(port);
       } catch (IOException e) {
@@ -22,14 +23,14 @@ public class Server extends Thread{
    }
 
 
-   public void run(){
+   public void run(trans translate){
 	Server server = new Server();
-	server.connection();
+	server.connection(translate);
 	System.out.println("Server running");
  }
 
 
-   public void connection() {
+   public void connection(trans translate ) {
 	System.out.println("Waiting for client ...");
 	try
 	{
@@ -45,7 +46,9 @@ public class Server extends Thread{
 		try
 		{  
 	           String line = dis.readUTF();
-		   System.out.println(line);
+	           String lang = line.substring(0, 1);
+	           
+		   System.out.println(translate.translate(line.substring(2) ,lang, "en"));
 		   done = line.equals("bye");
 		}
 		catch(IOException ioe)

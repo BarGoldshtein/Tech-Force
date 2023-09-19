@@ -1,10 +1,11 @@
+package Utilitis;
 import com.ibm.cloud.sdk.core.service.security.IamOptions;
 import com.ibm.watson.language_translator.v3.LanguageTranslator;
 import com.ibm.watson.language_translator.v3.model.TranslateOptions;
 import com.ibm.watson.language_translator.v3.model.TranslationResult;
 import com.ibm.watson.language_translator.v3.util.Language;
 
-import Utilitis.config;
+import lang;
 
 import org.json.*;
 //import trans;

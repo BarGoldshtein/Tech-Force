@@ -8,12 +8,21 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class Client extends Thread {
 
 
+	@SuppressWarnings("deprecation")
 	public void run(){
 		System.out.println("Starting Client");
+		
+	    Scanner langinput = new Scanner(System.in);  // Create a Scanner object
+	    System.out.println("Enter you language");
+
+	    String UserLang = langinput.nextLine();  // Read user input
+	    langinput.close();
+		
 		try {
 			//
 			// Create a connection to the server socket on the server application
@@ -36,7 +45,7 @@ public class Client extends Thread {
 			   try
 			   {  
 				line = dis.readLine();
-					dos.writeUTF(line);
+					dos.writeUTF(UserLang + " " + line);
 				dos.flush();
 			   }
 			   catch(IOException ioe)
