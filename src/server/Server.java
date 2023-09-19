@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class Server extends Thread{
 
    private ServerSocket server;
    private int port = 5600;
@@ -19,10 +19,13 @@ public class Server {
 	}
    }
 
-   public static void main(String[] args) {
+
+   public void run(){
 	Server server = new Server();
 	server.connection();
-   }
+	System.out.println("Server running");
+ }
+
 
    public void connection() {
 	System.out.println("Waiting for client ...");
